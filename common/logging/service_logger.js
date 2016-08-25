@@ -11,7 +11,7 @@ let seneca = require('seneca')().client(CLIENT_OBJECT);
 
 module.exports = function (serviceName) {
    function logFunction(severity){
-      return function (message, service){
+      return function (message){
          return new Promise(function(resolve, reject) {
             if (!message){
                return resolve(null);

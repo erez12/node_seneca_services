@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = (function () {
+module.exports = function (serviceName) {
    function logFunction(severity){
       return function (message){
          return new Promise(function(resolve, reject) {
@@ -23,4 +23,4 @@ module.exports = (function () {
       warn: logFunction('warn'),
       error: logFunction('error')
    };
-}());
+};

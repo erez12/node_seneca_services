@@ -1,0 +1,26 @@
+{
+  "name": "node_seneca_services",
+  "version": "1.0.0",
+  "description": "- LOGGER_SERVICE_PORT - LOGGER_SERVICE_HOST - LOGGER_TRANSPORT ###",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "seneca": "^2.1.0",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erez12/node_seneca_services.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erez12/node_seneca_services/issues"
+  },
+  "homepage": "https://github.com/erez12/node_seneca_services#readme"
+}

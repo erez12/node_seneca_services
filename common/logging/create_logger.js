@@ -1,12 +1,12 @@
 "use strict";
 
 const supportedLoggers = {
-   "console": () => require('./console_logger.js'),
-   "service": () => require('./service_logger.js')
+   "console": (serviceName) => require('./console_logger.js')(serviceName),
+   "service": (serviceName) => require('./service_logger.js')(serviceName)
 };
 
-module.exports = function createLogger(type){
+module.exports = function createLogger(type, serviceName){
    if (!type || !supportedLoggers[type]) return null;
 
-   return supportedLoggers[type]();
+   return supportedLoggers[type](serviceName);
 }

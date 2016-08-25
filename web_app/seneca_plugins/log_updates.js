@@ -12,13 +12,6 @@ module.exports = function create_log_updates_plugin(webClientsNotifier){
          });
          console.log("message from logger", msg.service, msg.severity, msg.message);
          respond(null);
-         // TODO - pass info to our clients
-        //Maybe send an internl message to self
-      //  this.act('role:math', {
-      //    cmd:   valid_ops[msg.operation],
-      //    left:  msg.left,
-      //    right: msg.right,
-      //  }, respond)
       });
    };
 };

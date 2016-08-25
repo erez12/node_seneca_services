@@ -1,5 +1,5 @@
 {
-  "name": "traking_service",
+  "name": "tracking_service",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
+    "redis": "^2.6.2",
     "request": "^2.74.0",
     "seneca": "^2.1.0"
   }

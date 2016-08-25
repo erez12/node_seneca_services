@@ -9,6 +9,7 @@
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	<script src="/js/server_events_service.js"></script>
 	<script src="/js/controllers/logger_controller.js"></script>
+	<script src="/js/controllers/tracking_controller.js"></script>
 	<script src="/js/main.js"></script>
 	<style type="text/css">
 		.container {
@@ -23,12 +24,16 @@
 <body  ng-app="MyApp">
 	<div class="container">
 		<div class="tab-content">
+
+			<div ng-controller="trackingCtroller" class="tab-pane active" id="logger-tab" role="tabpanel">
+            	<h1>data</h1>
+            </div>
             <div ng-controller="loggerCtroller" class="tab-pane active" id="logger-tab" role="tabpanel">
             	<ul class="list-group">
             		<li class="list-group-item" ng-repeat="item in items" ng-class="getLogClass($index, items)">
             			{{item.service}}:: {{item.message}}
             		</li>
-					</ul>
+				</ul>
             </div>
         </div>
 	</div>

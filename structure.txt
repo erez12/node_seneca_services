@@ -1,0 +1,47 @@
+Project Structure And Roles:
+============================
+
++---common
+|   \---logging - A common package to allow logging
+|           console_logger.js - A standard output logger (Implements ILogger interface)
+|           create_logger.js - A "factory" method to create a logger
+|           service_logger.js - A logger service client (Implements ILogger interface)
+|
++---logger_service
+|   |   app.js - Module "main"
+|   |   data_access_layer.js - DB connector
+|   |
+|   +---seneca_plugins
+|   |       logger.js - Seneca logger server
+|   |
+|   \---test
+|           logger_client.js
+|
++---tracking_service
+|   |   app.js - Module "main"
+|   |   data_access_layer.js - DB connector
+|   |
+|   +---seneca_plugins
+|   |       api.js - Seneca tracking server + REST endpoint
+|   |
+|   \---test
+|           tracking_client.js
+|
+\---web_app
+    |   app.js - Module "main"
+    |   package.json
+    |
+    +---public - Angular app resources
+    |   |   index.html
+    |   |
+    |   \---js
+    |       |   main.js
+    |       |   server_events_service.js
+    |       |
+    |       \---controllers
+    |               logger_controller.js
+    |               tracking_controller.js
+    |
+    \---seneca_plugins
+            log_updates.js - Seneca log_updates server
+            tracking_updates.js - Seneca log_updates server

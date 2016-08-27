@@ -1,10 +1,5 @@
-# Environment args
-### Logger
-- LOGGER_SERVICE_PORT
-- LOGGER_SERVICE_HOST
-- LOGGER_TRANSPORT
-###
-
+System Design:
+============================
 
   +-------------------+                                             +------------------+
   |   Storage         |                                             | Storage (Redis)  |
@@ -17,8 +12,8 @@
                 |                                                                  |
      +----------+----------------+                                      +----------+--------------+
      |                           |                                      |                         |
-     |                           |    Log: (ser^ice, se^erity, message) |                         |        Set: (bag_id, lat, lon)
-     |        Log Ser^ice        |  <-----------------------------------+     Traking Ser^ice     |   <----------------------------+
+     |                           |    Log: (service, severity, message) |                         |        Set: (bag_id, lat, lon)
+     |        Log Service        |  <-----------------------------------+     Traking Service     |   <----------------------------+
      |                           |                                      |                         |
      |                           |                                      |                         |
      |                           |                                      |                         |
@@ -30,7 +25,7 @@
                   |                                                                   |
                   |                                                                   |
                   |                                                                   |   Location_update: (bag id, lat, lon)
-                  | Log_update(ser^ice, se^erity, message)                            |
+                  | Log_update(service, severity, message)                            |
                   |                                                                   |
                   |                                                                   |
                   |                                                                   |

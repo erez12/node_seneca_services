@@ -1,5 +1,6 @@
 function TrackingController($scope, ServerEvents) {
-  ServerEvents.on('tracking_event', (data) => {
-    console.log(data);
-  });
+	$scope.data = {};
+	ServerEvents.on('tracking_event', (data) => {
+		$scope.data[data.bag_id] = data;
+	});
 }

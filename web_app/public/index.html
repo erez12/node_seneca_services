@@ -13,21 +13,46 @@
 	<script src="/js/main.js"></script>
 	<style type="text/css">
 		.container {
-	        padding-top:200px;
+	        padding-top:50px;
 	    }
 		#logger-tab{
 		    max-height: 500px;
 		    overflow-y:scroll;
 		}
+		.head{
+  			background-color:orange;
+  			width:20px;
+  		}
 	</style>
 </head>
 <body  ng-app="MyApp">
-	<div class="container">
-		<div class="tab-content">
+	<div class="container" style="width: 1270px">
+		<div class="page-header">
+			<h3>Tracking Info</h3>
+		</div>
+		<div ng-controller="trackingCtroller">
+		  	<table class="table table-striped table-bordered">
+			    <thead>
+			      <tr>
+			        <th class="head">bagId</th>
+			        <th class="head">Longitude</th>
+			        <th class="head">Latitude</th>
+			      </tr>
+			    </thead>
 
-			<div ng-controller="trackingCtroller" class="tab-pane active" id="logger-tab" role="tabpanel">
-            	<h1>data</h1>
-            </div>
+			    <tbody>
+			    	<tr ng-repeat="x in data">
+					    <td>{{ x.bag_id }}</td>
+					    <td>{{ x.lon }}</td>
+					    <td>{{ x.lat }}</td>
+					</tr>
+			    </tbody>
+		  	</table>
+		</div>
+		<div class="page-header">
+			<h3>Logging Info</h3>
+		</div>
+		<div class="tab-content">
             <div ng-controller="loggerCtroller" class="tab-pane active" id="logger-tab" role="tabpanel">
             	<ul class="list-group">
             		<li class="list-group-item" ng-repeat="item in items" ng-class="getLogClass($index, items)">

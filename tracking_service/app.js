@@ -1,9 +1,9 @@
 "use strict"
 
 let seneca = require('seneca')()
-      .use('api')
+	.use(require('./seneca_plugins/api'))
 
 let app = require('express')()
-      .use(require('body-parser').json())
-      .use(seneca.export('web'))
-      .listen(process.env.TRACKING_SERVICE_PORT || 3003)
+	.use(require('body-parser').json())
+	.use(seneca.export('web'))
+	.listen(process.env.TRACKING_SERVICE_PORT || 3003)

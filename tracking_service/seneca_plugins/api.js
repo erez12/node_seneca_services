@@ -1,7 +1,7 @@
 "use strict"
 
-const logger = require('../common/logging/create_logger.js')('service', 'tracking_service');
-const dataAccessLayer = require('./data_access_layer.js');
+const logger = require('../../common/logging/create_logger.js')('service', 'tracking_service');
+const dataAccessLayer = require('../data_access_layer.js');
 const WEB_APP_CLIENT = {
     pin: 'role:web_app,cmd:tracking_update',
     port: process.env.WEB_APP_PORT || 3002,
@@ -20,21 +20,19 @@ module.exports = function api(options) {
             lon: msg.lon,
             lat: msg.lat
         };
-        dataAccessLayer.updateTracking(msg.bag_id, data, function(err) {
-            if (err) {
+        dataAccessLayer.updateTracking(msg.bag_id, data)
+            .then((_) => {
+                logger.log("bag " + msg.bag_id + " is at " + JSON.stringify(data));
+                data.bag_id = msg.bag_id;
+                updateWebApp(data);
+                respond(null, {
+                    answer: 'updated'
+                });
+            })
+            .catch((err) => {
                 logger.error(error.message);
                 respond(err);
-                return;
-            }
-
-            data.bag_id = msg.bag_id;
-            //TODO - Notify webApp
-            updateWebApp(data);
-            logger.log(data);
-            respond(null, {
-                answer: 'updated'
-            })
-        });
+            });
     });
 
     this.add('init:api', function(msg, respond) {

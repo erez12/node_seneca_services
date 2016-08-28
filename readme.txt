@@ -20,3 +20,11 @@
                       As UI grow, and new features added (such as update per specific bag), i guess we can add
                       "getters" from the web-app to the tracking service.
 
+5. Running -
+   5.1 You'll need to have redis, sqlite3 install prior to running this project.
+   5.2 Each submodule has its own package.js but under folder root there is a global package.js
+       which has all dependencies. So npm install on folder root will be enough.
+   5.3 I create a simple app.js file under folder root that will load the system (fork all modules) and run some
+       test logger clients.
+
+       
